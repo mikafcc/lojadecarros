@@ -2,38 +2,206 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>contato | AutoVendas</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Contato | AutoVendas</title>
+  <style>
+    /* ======== ESTILO GERAL ======== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #0a0a0a;
+      color: #fff;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ======== CABEÇALHO ======== */
+    header {
+      background: linear-gradient(90deg, #000, #111, #222);
+      padding: 20px 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
+      border-bottom: 2px solid #ff0000;
+    }
+
+    header h1 {
+      font-size: 1.8em;
+      text-transform: uppercase;
+      color: #ff0000;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px #ff0000;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 25px;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: #ff0000;
+      bottom: -5px;
+      left: 0;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff0000;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ======== CONTEÚDO PRINCIPAL ======== */
+    main {
+      padding: 60px 10%;
+      max-width: 600px;
+      margin: auto;
+      text-align: center;
+      background: linear-gradient(145deg, #111, #1a1a1a);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    }
+
+    main h2 {
+      font-size: 2em;
+      color: #fff;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      text-shadow: 0 0 15px #ff0000;
+    }
+
+    /* ======== FORMULÁRIO ======== */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      text-align: left;
+      color: #ddd;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background-color: #222;
+      color: #fff;
+      font-size: 1em;
+      transition: 0.3s;
+      outline: none;
+    }
+
+    input:focus, textarea:focus {
+      background-color: #1a1a1a;
+      box-shadow: 0 0 10px #ff0000;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    .btn {
+      background: linear-gradient(90deg, #ff0000, #0055ff);
+      border: none;
+      padding: 12px 0;
+      border-radius: 25px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #ff4d4d, #3399ff);
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    }
+
+    /* ======== RODAPÉ ======== */
+    footer {
+      background-color: #111;
+      padding: 20px 0;
+      text-align: center;
+      color: #aaa;
+      border-top: 2px solid #ff0000;
+      font-size: 0.9em;
+      margin-top: 50px;
+    }
+
+    /* ======== RESPONSIVIDADE ======== */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      nav a {
+        margin: 10px;
+      }
+
+      main {
+        padding: 40px 8%;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>AutoVendas</h1>
     <nav>
-        <a href="index.html">Inicio</a>
+        <a href="index.html">Início</a>
         <a href="carros.html">Carros</a>
-        <a href="contatos.html">contato</a>
+        <a href="contatos.html">Contato</a>
     </nav>
   </header>
   
-    <main>
-        <h2>fale conosco</h2>
-        <form>
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>/<BR>
-            
-            <label for="email">Email:</label>
-            <input for="email" id="email" name="email" required></BR>
+  <main>
+    <h2>Fale Conosco</h2>
+    <form>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
 
-            <label for="mensagem">Mensagem</label>
-            <textarea id="mensagem" name="mensagem" rows="5" required></textarea></BR>
-            
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required>
 
-            <button type="submit" class="btn">Enviar</button>
-        </form>
-    </main> 
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
 
-    <footer>
-        <p>&copy; 2025 Carros Premium. Todos os direitos reservados.</p>
-    </footer>
+      <button type="submit" class="btn">Enviar</button>
+    </form>
+  </main> 
+
+  <footer>
+    <p>&copy; 2025 Carros Premium. Todos os direitos reservados.</p>
+  </footer>
 </body>
 </html>
